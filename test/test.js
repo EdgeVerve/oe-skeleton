@@ -1,5 +1,7 @@
 var oecloud = require('oe-cloud');
-var loopback=require('loopback');
+var loopback = require('loopback');
+oecloud.attachMixinsToBaseEntity("SkeletonMixin");
+
 oecloud.observe('loaded', function (ctx, next) {
 console.log("oe-cloud modules loaded");
   return next();
@@ -44,8 +46,8 @@ describe(chalk.blue('SkeletonTest Started'), function (done) {
   before('wait for boot scripts to complete', function (done) {
     app.on('test-start', function () {
       Customer = loopback.findModel("Customer");
-      deleteAllUsers(function () {
-	    return done();
+      deleteAllUsers(function (err) {
+	    return done(err);
       });
     });
   });
@@ -130,10 +132,12 @@ describe(chalk.blue('SkeletonTest Started'), function (done) {
       done();
     });
   });
+
+  it('t6 skeleton test case', function (done) {
+    var skeleton = loopback.findModel("Skeleton");
+    skeleton.find({}, {}, function (err, r) {
+      return done(err);
+    });
+  });
 });
-
-
-
-
-
 

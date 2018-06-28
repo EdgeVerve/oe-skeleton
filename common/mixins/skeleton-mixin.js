@@ -18,10 +18,9 @@ function beforeAccess(ctx, next) {
   if (modelSettings.mixins.SkeletonMixin === false) {
     return next();
   }
-  
   var x = utils.addNumbers(3, 4);
-  if ( x !== 7 ){
-    return next(new Error("Addition not good"));
+  if ( x !== 7 ) {
+    return next(new Error('Addition not good'));
   }
   return next();
 }

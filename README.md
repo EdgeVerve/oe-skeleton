@@ -35,6 +35,6 @@ $ npm run grunt-cover
 $ node test/server.js
 ```
 
-browse  [explorer](http://localhost:3000/explorer) 
+browse  [http://localhost:3000/explorer](http://localhost:3000/explorer) 
 
 

@@ -16,16 +16,17 @@ $ npm install --no-optional
 
 
 
-## Test
+## Run Test cases
 
 ```sh
 mocha test/test.js
 ```
 
-## coverage
+## Run test with coverage
+
+Run test cases along with code coverage - code coverage report will be available in coverage folder
 
 ```sh
-$ # Run test cases along with code coverage - code coverage report will be available in coverage folder
 $ npm run grunt-cover
 ```
 
@@ -36,5 +37,4 @@ $ node test/server.js
 ```
 
 browse  [http://localhost:3000/explorer](http://localhost:3000/explorer) 
-
 

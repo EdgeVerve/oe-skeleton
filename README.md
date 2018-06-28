@@ -6,7 +6,9 @@ This module can be used for reference
 * oe-cloud
 * oe-logger
  
-## Install
+## Installation, test cases and code coverage
+
+### Installation
 
 ```sh
 $ git clone http://evgit/atul/oe-skeleton.git
@@ -16,13 +18,13 @@ $ npm install --no-optional
 
 
 
-## Run Test cases
+### Run Test cases
 
 ```sh
 mocha test/test.js
 ```
 
-## Run test with coverage
+### Run test with coverage
 
 Run test cases along with code coverage - code coverage report will be available in coverage folder
 
@@ -30,11 +32,89 @@ Run test cases along with code coverage - code coverage report will be available
 $ npm run grunt-cover
 ```
 
-## Run as independent Server
+### Run as independent Server
 
 ```sh
 $ node test/server.js
 ```
 
 browse  [http://localhost:3000/explorer](http://localhost:3000/explorer) 
+
+## CI CD
+
+CI CD is available and you may have to do minor changes as below.
+
+### .gitlab-ci.yml
+
+This file is responsible for running CI/CD in gitlabs. *you don't have to chagne anything in file*. It will run *npm run grunt-cover* job which will internally run mocha test/test.js along with coverage.
+
+
+### Gruntfile.js
+
+This file is used when CI/CD run test and coverage. you may want to modify following acceptance parameters.
+
+
+```
+ check: {
+            lines: 90,
+            statements: 90,
+            branches: 50,
+            functions: 100
+          },
+
+```
+
+### README.md
+
+you should change this file as per your module.
+
+### ESLint
+
+.eslintrc and .eslintignore files you need not to modify. However it is good practice to run following command before you push into git. Or else CI/CD pipeline will fail.
+
+```sh
+$ eslint . --fix
+```
+
+### Developing oe-cloud module
+
+You can do following things in this oe-cloud module.
+
+* Add models specific to your module (see common/modles folder)
+* Add mixins which will get attached to BaseEntity (see common/mixins folder)
+* Add middleware (see server/middleware folder and server/middleware.json)
+* Add Boot script (see server/boot folder)
+* 
+
+### Developing test script 
+
+There is test folder created. you need to modify following files for your project
+
+## datasources*.json 
+
+There are several total 3 datasource.x.json files each for Mongo, PostgreSQL and Oracle. you should change database name at least for Mongo and PostgreSQL
+
+## server.js
+
+you may want to run this module as independent server during your development.  Mostly you don't have to chagne this file unless you are having mixin. For that have line similar to below for your mixin.
+
+```javascript
+oecloud.attachMixinsToBaseEntity("SkeletonMixin");
+
+```
+
+
+## test.js
+
+This is typical mocha unit test case file. you can keep adding test cases to it.
+
+
+
+
+
+
+
+
+
+
 

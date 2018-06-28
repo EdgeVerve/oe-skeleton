@@ -5,7 +5,7 @@ This module can be used for reference
 ## dependency
 * oe-cloud
 * oe-logger
- 
+
 ## Installation, test cases and code coverage
 
 ### Installation
@@ -76,7 +76,7 @@ you should change this file as per your module.
 $ eslint . --fix
 ```
 
-### Developing oe-cloud module
+## Developing oe-cloud module
 
 You can do following things in this oe-cloud module.
 
@@ -84,17 +84,16 @@ You can do following things in this oe-cloud module.
 * Add mixins which will get attached to BaseEntity (see common/mixins folder)
 * Add middleware (see server/middleware folder and server/middleware.json)
 * Add Boot script (see server/boot folder)
-* 
 
-### Developing test script 
+## Developing test script 
 
 There is test folder created. you need to modify following files for your project
 
-## datasources*.json 
+### datasources*.json 
 
 There are several total 3 datasource.x.json files each for Mongo, PostgreSQL and Oracle. you should change database name at least for Mongo and PostgreSQL
 
-## server.js
+### server.js
 
 you may want to run this module as independent server during your development.  Mostly you don't have to chagne this file unless you are having mixin. For that have line similar to below for your mixin.
 
@@ -103,18 +102,16 @@ oecloud.attachMixinsToBaseEntity("SkeletonMixin");
 
 ```
 
-
-## test.js
+### test.js
 
 This is typical mocha unit test case file. you can keep adding test cases to it.
 
+### Adding models to your test scripts
 
+you can add models that you want to use only for your test scripts in test/common/models folder and then modify test/model-config.json file to have entry for the model.
 
+### Adding boot script to your test scripts
 
+you can add boot script in test/boot folder. This will be executed as part of boot in application.
 
-
-
-
-
-
-
+Similarly you can also have middleware/mixins for testing - which is mostly not required.

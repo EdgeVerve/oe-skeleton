@@ -26,6 +26,7 @@ python=E:\Python27\python.exe
 
 *.gitconfig*
 
+```
 [http]
 proxy = http://<username>:<password>@10.68.248.102:80/
 [https]

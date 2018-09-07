@@ -1,6 +1,7 @@
 # oe-skeleton project 
 
-This module can be used for reference
+This is oeCloud working module which can be used for example reference to build your module. You can then plug your module in app-list.json file of application. oeCloud module will load oe-skeleton (or your module).
+This document file shows what all things you can typically do when you want to develop oecloud module.
 
 ## dependency
 * oe-cloud
@@ -9,6 +10,8 @@ This module can be used for reference
 ## Installation, test cases and code coverage
 
 ### Pre-requisite
+
+Before you start developing oeCloud module, you should ensure network access and other softwares like MongoDB installed on your machine.
 
 - you should able to connecto to [evgit](http://evgit), [npmjs](http://registry.npmjs.org) and [github](https://github.com) when you use npm on command line
 - For that use .npmrc and .gitconfig as shown below
@@ -46,9 +49,10 @@ proxy = http://<username>:<password>@10.68.248.102:80/
 	email = atul_pandit@yahoo.com
 ```
 
+* You should have nodejs 8+ version installed
+* You should have MongoDB 3.2+ version installed
 
-
-### Installation
+### Installation of oe-skeleton
 
 ```sh
 $ git clone http://evgit/atul/oe-skeleton.git
@@ -80,18 +84,19 @@ $ node test/server.js
 
 browse  [http://localhost:3000/explorer](http://localhost:3000/explorer) 
 
-## CI CD
+## Enabling CI
 
-CI CD is available and you may have to do minor changes as below.
+CI is available and enabled by default in this project. You may have to do minor changes as below.
 
 ### .gitlab-ci.yml
 
-This file is responsible for running CI/CD in gitlabs. *you don't have to chagne anything in file*. It will run *npm run grunt-cover* job which will internally run mocha test/test.js along with coverage.
+This file is responsible for running CI in gitlabs. *you don't have to chagne anything in file*. It will run *npm run grunt-cover* job which will internally run mocha test/test.js along with coverage.
+You may have to change this file to point to different database of Oracle, PostgreSQL or MongoDB. you will have to go to such sections and change the connection string. But mostly this is not needed.
 
 
 ### Gruntfile.js
 
-This file is used when CI/CD run test and coverage. you may want to modify following acceptance parameters.
+This file is used when CI run test and coverage. you may want to modify following acceptance parameters.
 
 
 ```
@@ -110,7 +115,7 @@ you should change this file as per your module.
 
 ### ESLint
 
-.eslintrc and .eslintignore files you need not to modify. However it is good practice to run following command before you push into git. Or else CI/CD pipeline will fail.
+.eslintrc and .eslintignore files you need not to modify. However it is good practice to run following command before you push into git. Or else CI pipeline will fail.
 
 ```sh
 $ eslint . --fix

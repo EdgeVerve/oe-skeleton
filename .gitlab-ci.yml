@@ -34,7 +34,7 @@ npminstall:
     paths:
       - node_modules/
   tags:
-    - CEP_RUNNER
+    - ubuntu-runner
 
 
 mongotest:
@@ -55,7 +55,7 @@ mongotest:
       - coverage/
     when: on_failure
   tags:
-    - CEP_RUNNER
+    - ubuntu-runner
 
 postgrestest:
   stage: pre-build-test
@@ -71,8 +71,7 @@ postgrestest:
     - npm run grunt-cover
   tags:
     - CEP_RUNNER    
-  tags:
-    - CEP_RUNNER
+
     
 oracletest:
   stage: pre-build-test

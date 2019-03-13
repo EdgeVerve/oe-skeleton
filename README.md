@@ -1,4 +1,4 @@
-# oe-skeleton project 
+# oe-skeleton project
 
 This is oeCloud working module which can be used for example reference to build your module. You can then plug your module in app-list.json file of application. oeCloud module will load oe-skeleton (or your module).
 This document file shows what all things you can typically do when you want to develop oecloud module.
@@ -13,14 +13,14 @@ This document file shows what all things you can typically do when you want to d
 
 Before you start developing oeCloud module, you should ensure network access and other softwares like MongoDB installed on your machine.
 
-- you should able to connecto to [evgit](http://evgit), [npmjs](http://registry.npmjs.org) and [github](https://github.com) when you use npm on command line
+- You should able to connecto to [npmjs](http://registry.npmjs.org) and [github](https://github.com) when you use npm on command line
 - For that use .npmrc and .gitconfig as shown below
 
 *.npmrc*
 
 ```
-http-proxy=http://<username>:<password>@10.68.248.102:80/
-https-proxy=http://<username>:<password>@10.68.248.102:80/
+http-proxy=http://proxy/
+https-proxy=https://proxy/
 registry="http://registry.npmjs.org"
 no_proxy=
 strict-ssl=false
@@ -31,22 +31,9 @@ python=E:\Python27\python.exe
 
 ```
 [http]
-proxy = http://<username>:<password>@10.68.248.102:80/
+proxy = http://proxy/
 [https]
-proxy = http://<username>:<password>@10.68.248.102:80/
-[http "http://10.73.97.24"]
-                sslVerify = false
-                proxy =
-[http "http://evgit"]
-                sslVerify = false
-                proxy =
-[http "http://10.188.25.62"]
-                sslVerify = false
-                proxy =		                
-				
-[user]
-	name = atul-github
-	email = atul_pandit@yahoo.com
+proxy = https://proxy/
 ```
 
 * You should have nodejs 8+ version installed
@@ -55,7 +42,7 @@ proxy = http://<username>:<password>@10.68.248.102:80/
 ### Installation of oe-skeleton
 
 ```sh
-$ git clone http://evgit/atul/oe-skeleton.git
+$ git clone https://github.com/EdgeVerve/oe-skeleton.git
 $ cd oe-skeleton
 $ npm install --no-optional
 ```
@@ -82,7 +69,7 @@ $ npm run grunt-cover
 $ node test/server.js
 ```
 
-browse  [http://localhost:3000/explorer](http://localhost:3000/explorer) 
+browse  [http://localhost:3000/explorer](http://localhost:3000/explorer)
 
 ## Enabling CI
 
@@ -130,11 +117,11 @@ You can do following things in this oe-cloud module.
 * Add middleware (see server/middleware folder and server/middleware.json)
 * Add Boot script (see server/boot folder)
 
-## Developing test script 
+## Developing test script
 
 There is test folder created. you need to modify following files for your project
 
-### datasources*.json 
+### datasources*.json
 
 There are several total 3 datasource.x.json files each for Mongo, PostgreSQL and Oracle. you should change database name at least for Mongo and PostgreSQL
 

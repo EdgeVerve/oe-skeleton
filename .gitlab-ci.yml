@@ -33,7 +33,7 @@ npminstall:
     paths:
       - node_modules/
   tags:
-    - ubuntu-runner
+    - CEP_RUNNER
 
 
 mongotest:
@@ -53,7 +53,7 @@ mongotest:
       - coverage/
     when: on_failure
   tags:
-    - ubuntu-runner
+    - CEP_RUNNER
 
 postgrestest:
   stage: pre-build-test
